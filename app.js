@@ -25,7 +25,15 @@ var indexRoutes = require('./routes/index');
 var app = express();
 
 // view engine setup
-mongoose.connect("mongodb://localhost/yelp_camp_v11", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://xiegudong45:KlQANDJS2@webproject-eeqog.mongodb.net/test?retryWrites=true", {
+  useNewUrlParser: true,
+  useCreateIndex: true
+}).then(() => {
+  console.log("Connected to DB!");
+}).catch(err => {
+  console.log("Error: ", err.message);
+});
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
