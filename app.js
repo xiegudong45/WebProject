@@ -93,8 +93,8 @@ app.use('/', indexRoutes);
 app.use('/campgrounds',campgroundRoutes);
 app.use('/campgrounds/:id/comments',commentRoutes);
 
-app.listen(process.env.PORT, function() {
-  console.log("The YelpCamp App has been launched!");
+app.listen(app.get('port'), function() {
+  console.log("The YelpCamp App has been launched on " + app.get('port'));
 });
 
 
